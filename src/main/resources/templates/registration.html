@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:if="${error}" th:text="${error}"></div>
+
+<form th:action="@{/registration-handler}" method="post">
+    <div>Регистрация нового пользователя:</div>
+    <input type="text" placeholder="Введите логин" name="login">
+    <input type="password" placeholder="Введите пароль" name="password">
+    <input type="submit" value="Регистрация">
+</form>
+</body>
+</html>

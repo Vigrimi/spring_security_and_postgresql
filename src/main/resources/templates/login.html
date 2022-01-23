@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма входа</title>
+</head>
+<body>
+<div th:if="${param.error}">
+    Неправильные имя или пароль.
+</div>
+
+<!-- связь хтмл и public class AccountController если класс отмечен аннот-й @Controller и метод возвращает тип
+данных String - return "login"; , то это возвращает html файл login.html из папки resources/templates  -->
+<!-- и из класса public class SecurityConfig extends WebSecurityConfigurerAdapter  -->
+<form th:action="@{/login-handler}" method="post"> <!-- .loginProcessingUrl("/login-handler")  -->
+    <input type="text" placeholder="Введите логин..." name="login"> <!-- .usernameParameter("login")  -->
+    <input type="password" placeholder="Введите пароль..." name="password"> <!-- .passwordParameter("password")  -->
+    <input type="submit" value="Войти">
+</form>
+Пройти регистрацию как новый пользователь
+<a href="/registration">Зарегистрироваться!</a>
+</body>
+</html>
